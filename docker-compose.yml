@@ -1,10 +1,10 @@
-version: '3.8'
-
 services:
   web:
     build: .
     ports:
       - "8080:80" # O Portal rodará na porta 8080
+    volumes:
+      - ./src:/var/www/html
     environment:
       - DB_HOST=db
       - DB_USER=wifi_user
