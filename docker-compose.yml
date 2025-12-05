@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80" # O Portal rodará na porta 8080
+    environment:
+      - DB_HOST=db
+      - DB_USER=wifi_user
+      - DB_PASS=wifi_password
+      - DB_NAME=wifi_portal
+      # Configurações do seu UniFi Controller
+      - UNIFI_URL=${UNIFI_URL}
+      - UNIFI_USER=${UNIFI_USER}
+      - UNIFI_PASS=${UNIFI_PASS}
+      - UNIFI_SITE=${UNIFI_SITE}
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: mariadb:10.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_secret
+      - MYSQL_DATABASE=wifi_portal
+      - MYSQL_USER=wifi_user
+      - MYSQL_PASSWORD=wifi_password
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+
+volumes:
+  db_data:
