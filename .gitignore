@@ -1,0 +1,31 @@
+# --- IDEs e Sistema Operacional ---
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- PHP e Composer ---
+/vendor/
+composer.phar
+.phpunit.result.cache
+
+# --- Apache e Logs Gerais ---
+/logs/
+*.log
+error_log
+access_log
+
+# --- Arquivos de Ambiente (NUNCA COMMITE SENHAS) ---
+.env
+.env.local
+.env.*.local
+
+# --- Docker ---
+docker-compose.override.yml
+.docker/
+
+# --- Volumes Persistentes do Docker (Ajuste conforme suas pastas) ---
+/mysql_data/
+/pg_data/
+/html/storage/
