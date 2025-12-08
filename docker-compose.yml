@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "8080:80" # O Portal rodará na porta 8080
+      - "80:80" # O Portal rodará na porta 8080
     volumes:
       - ./src:/var/www/html
     environment:
